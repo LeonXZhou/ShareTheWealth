@@ -84,7 +84,7 @@ def createNeededTables():
 @app.route("/api/user/<int:user_id>/occasion")
 def getOccasionsFromId(user_id):
     cur = conn.cursor()
-    cur.execute("""select * from occasion join participants on occasion.id = occasion_id where user_id = %s;""", (user_id,))
+    cur.execute("""select occasion.id,occasion  from occasion join participants on occasion.id = occasion_id where user_id = %s;""", (user_id,))
     return(jsonify(cur.fetchall()))
 
 @app.route("/api/occasion/<int:occasion_id>/activities")
@@ -96,6 +96,7 @@ def getActivitiesFromOccasion(occasion_id):
 @app.route("/api/post/occasion", methods=['POST'])
 def postOccasion():
     print("asdf")
+    print(request.json)
     cur = conn.cursor()
    
     if not request.json or not 'date' in request.json or not 'name' in request.json:
