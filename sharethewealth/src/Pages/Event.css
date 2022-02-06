@@ -140,5 +140,6 @@ form.activity-add div {
 
 .activities-list {
     margin-top: 265px;
+    overflow: scroll;
     z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000;
 }

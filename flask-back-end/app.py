@@ -167,7 +167,8 @@ def createNeededTables():
                         id SERIAL PRIMARY KEY NOT NULL,
                         activities_id INT REFERENCES activities(id),
                         user_id INT REFERENCES users(id),
-                        contribution_amount MONEY NOT NULL
+                        contribution_amount MONEY NOT NULL,
+                        CONSTRAINT user_activity UNIQUE (activities_id,user_id)
                         );""")
 
     conn.commit()
@@ -215,7 +216,7 @@ def postOccasion():
     conn.commit()
     return (jsonify(cur.fetchall()))
 
-@app.route("/activity/<int:activities_id>/user/<int:user_id>", methods=['POST'])
+@app.route("/api/activity/<int:activities_id>/user/<int:user_id>", methods=['POST'])
 def postContribution(activities_id, user_id,):
     cur = conn.cursor()
     
@@ -225,13 +226,14 @@ def postContribution(activities_id, user_id,):
     cur.execute("""
     INSERT INTO event_contribution (activities_id, user_id, contribution_amount)
     VALUES
-    (%(str1)s, %(str2)s, %(str3)s);
+    (%(str1)s, %(str2)s, %(str3)s)
+    ON CONFLICT ON CONSTRAINT user_activity DO UPDATE 
+    SET contribution_amount= %(str3)s;
     """,
     {'str1':activities_id, 'str2':user_id, 'str3':request.json['contribution_amount']})
 
     conn.commit()
     return "Post request successful"
-
 
 
 @app.route("/api/occasion/<int:occasion_id>/activity", methods=['POST'])
