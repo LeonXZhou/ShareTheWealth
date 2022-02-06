@@ -18,8 +18,9 @@ export default function Event() {
     }, [])
 
     const activitiesList = activityState.map((activity) => {
-        return (<div key={activity[0]}>Name: {activity[1]},----------Total Goal:{activity[2]}</div>)
-    })
+        return (<Activity key={activity[0]} name={activity[1]} goal={activity[2]} pledge={activity[3]}></Activity>
+        )}
+    )
     return (
         <>
             <div>Event Name: {eventState.name}</div>
@@ -44,7 +45,7 @@ export default function Event() {
                 insertActitivityByOccassionId(params.event_id, formState.name, formState.cost)
                     .then(() => {
                         getActivitiesByOccassionId(params.event_id)
-                        .then((res) => { setActivityState(res.data) })
+                            .then((res) => { setActivityState(res.data) })
                     })
             }}>add</button>
         </>

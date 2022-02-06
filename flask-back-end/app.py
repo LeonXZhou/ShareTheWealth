@@ -87,7 +87,7 @@ def popTables():
     (3, 1, 2500.00),
     (4, 1, 15000.00),
     (3, 2, 15000.00),
-    (4, 2, 15000.00),
+    (4, 2, 10000.00),
     (5, 2, 0.01),
     (6, 2, 0.90),
     (5, 3, 0.01),
@@ -151,7 +151,10 @@ def getOccasionsFromId(user_id):
 @app.route("/api/occasion/<int:occasion_id>/activities")
 def getActivitiesFromOccasion(occasion_id):
     cur = conn.cursor()
-    cur.execute("""select id, name, total_cost from activities where occasion_id = %s;""", (occasion_id,))
+    cur.execute("""select activities.id, name, total_cost, SUM(contribution_amount) from activities 
+        FULL JOIN event_contribution on activities_id = activities.id
+        where occasion_id = %s
+        GROUP BY activities.id,name,total_cost;""", (occasion_id,))
     return(jsonify(cur.fetchall()))
 
 @app.route("/api/occasion/<int:occasion_id>")
