@@ -14,6 +14,7 @@ import Event from "./Pages/Event";
 import Portal from "./Pages/Portal";
 import CreateActivity from "./Pages/CreateActivity";
 import ActivityPortal from "./Pages/ActivityPortal";
+import ActivityShare from "./Pages/ActivityShare";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/create-activity" element={<CreateActivity />} />
           <Route path="/event/:event_id" element={<Event/>}/>
           <Route path="/activity-portal" element={<ActivityPortal />} />
+          <Route path="/activity-share" element={<ActivityShare />} />
 
         </Routes>
         <BottomNav></BottomNav>

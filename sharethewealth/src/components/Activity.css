@@ -87,6 +87,13 @@ cross-circle {
     margin: 10px;
 }
 
-.pledge-icon{
+.pledge:hover {
+    background-color: #1a9c25 !important;
+    border: none;
+    color: white;
+    margin: 10px;
+}
+
+.pledge-icon {
     color: white;
 }

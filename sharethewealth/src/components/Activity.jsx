@@ -22,14 +22,14 @@ function Activity(props) {
                     return 'collapse';
                 })
             }} aria-expanded="false">
-                <div className="event-name">
+                <div className="price">
                     <p className="activity-name">{props.name}</p>
                 </div>
                 <div className="price">
                     <p className="activity-name">{props.goal}</p>
                 </div>
                 <div className="price">
-                    <p className="activity-name">pledge amount{props.pledge || "$0.00"}</p>
+                    <p className="activity-name">Wealth: &nbsp;{props.pledge || "$0.00"}</p>
                 </div>
                 <div className="drop-down">
                     <p className="activity-name"><i className="fas fa-chevron-circle-down dropdown-icon"></i></p>
@@ -41,7 +41,7 @@ function Activity(props) {
                         <input className="form-control" type="number" value={pledgeState} onChange={(e) => {
                             setPledgeState(e.target.value)
                         }}></input>
-                        <button className="btn pledge"> <i class="fas fa-donate pledge-icon"></i> &nbsp;PLEDGE</button>
+                        <button className="btn pledge"> <i class="fas fa-donate pledge-icon"></i> &nbsp;SHARETHEWEALTH</button>
                     </form>
                     <div className="progress">
                         <div className="progress-bar" role="progressbar" style={{ width: `${pledgeNumber / goalNumber * 100}` + '%' }} aria-valuenow={`${pledgeNumber / goalNumber * 100}`} aria-valuemin="0" aria-valuemax="100"></div>
