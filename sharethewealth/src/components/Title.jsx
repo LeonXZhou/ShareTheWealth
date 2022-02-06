@@ -1,7 +1,7 @@
 import "./Title.css";
 function Title(){
     return(
-        <p>ShareTheWealth</p>
+        <p className="title">ShareTheWealth</p>
     );
 }
 export default Title;
