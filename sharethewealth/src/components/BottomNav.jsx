@@ -9,19 +9,19 @@ export default function BottomNav() {
             e.preventDefault();
             navigate('/')
         }}>
-            <i class="fas fa-home fa-lg"></i>
+            <i className="fas fa-home fa-lg"></i>
         </a>
         <a onClick={(e) => {
             e.preventDefault();
             navigate('/my-events')
         }}>
-            <i class="fas fa-calendar-check fa-lg"></i>
+            <i className="fas fa-calendar-check fa-lg"></i>
         </a>
         <a onClick={(e) => {
             e.preventDefault();
             navigate('/profile')
         }}>
-            <i class="fas fa-user fa-lg"></i>
+            <i className="fas fa-user fa-lg"></i>
         </a>
     </nav>
 }

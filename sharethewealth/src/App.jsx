@@ -7,10 +7,8 @@ import BottomNav from "./components/BottomNav";
 import HomePage from "./Pages/HomePage";
 
 import SignIn from "./Pages/SignIn";
-import Activity from "./components/Activity";
 import Profile from "./Pages/Profile";
 import MyEvents from "./Pages/MyEvents";
-
 function App() {
   return (
     <>
