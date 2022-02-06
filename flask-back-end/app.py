@@ -250,14 +250,6 @@ def postActivity(occasion_id):
     conn.commit()
     return "Post request successful"
 
-
-
-
-    
-
-    
-
-
 @app.route("/<int:task_id>", methods=['GET'])
 def get_test(task_id):
     task = [task for task in test if task['id'] == task_id]

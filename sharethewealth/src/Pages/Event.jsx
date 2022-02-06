@@ -19,37 +19,40 @@ export default function Event() {
 
     const activitiesList = activityState.map((activity) => {
         return (<Activity key={activity[0]} name={activity[1]} goal={activity[2]} pledge={activity[3]}></Activity>
-        )}
+        )
+    }
     )
     return (
         <>
-        <div className="activity-portal-container">
-            <div className="activity-portal-title">Event Name: {eventState.name}</div>
-            <div className = "activity-portal-subtitle">Date: {eventState.date}</div>
-            {activitiesList}
-            <form className={"activity-add"} onSubmit={(e) => { e.preventDefault() }}>
-                <div className="activity-name-field">
-                    <label className = "activity-name-subtitle">Activity Name</label>
+            <div className="activity-portal-container">
+                <div className="activity-portal-title">Event Name: {eventState.name}</div>
+                <div className="activity-portal-subtitle">Date: {eventState.date}</div>
+                <div className="activities-list">
+                    {activitiesList}
+                </div>
+                <form className={"activity-add"} onSubmit={(e) => { e.preventDefault() }}>
+                    <div className="activity-name-field">
+                        <label className="activity-name-subtitle">Activity Name</label>
                         <input className="form-control" type="text" placeholder="Enter Activity Name" value={formState.name} onChange={(e) => {
-                        setFormState((prev) => { return { ...prev, name: e.target.value } })
-                    }}></input>
-                </div>
+                            setFormState((prev) => { return { ...prev, name: e.target.value } })
+                        }}></input>
+                    </div>
                     <div className="price-field">
-                    <label className = "activity-goal-subtitle">Goal Amount</label>
-                        <input className="form-control" type="text" placeholder="Enter Estimated $" value={formState.cost} onChange={(e) => {
-                        setFormState((prev) => { return { ...prev, cost: e.target.value } })
-                    }}></input>
-                </div>
-            </form>
-                <button className= "btn btn-primary add-activity-portal" onClick={(e) => {
-                e.preventDefault()
-                insertActitivityByOccassionId(params.event_id, formState.name, formState.cost)
-                    .then(() => {
-                        getActivitiesByOccassionId(params.event_id)
-                            .then((res) => { setActivityState(res.data) })
-                    })
-            }}>CREATE EVENT</button>
-        </div>
+                        <label className="activity-goal-subtitle">Goal Amount</label>
+                        <input className="form-control" type="number" placeholder="Enter Estimated $" value={formState.cost} onChange={(e) => {
+                            setFormState((prev) => { return { ...prev, cost: e.target.value } })
+                        }}></input>
+                    </div>
+                </form>
+                <button className="btn btn-primary add-activity-portal" onClick={(e) => {
+                    e.preventDefault()
+                    insertActitivityByOccassionId(params.event_id, formState.name, formState.cost)
+                        .then(() => {
+                            getActivitiesByOccassionId(params.event_id)
+                                .then((res) => { setActivityState(res.data) })
+                        })
+                }}>CREATE EVENT</button>
+            </div>
         </>
     );
 }
