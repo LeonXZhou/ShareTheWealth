@@ -12,6 +12,7 @@ import Profile from "./Pages/Profile";
 import MyEvents from "./Pages/MyEvents";
 import Event from "./Pages/Event";
 import Portal from "./Pages/Portal";
+import CreateActivity from "./Pages/CreateActivity";
 
 function App() {
   return (
@@ -27,7 +28,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/my-events" element={<MyEvents/>} />
           <Route path="/portal" element={<Portal />} />
+          <Route path="/create-activity" element={<CreateActivity />} />
           <Route path="/event/:event_id" element={<Event/>}/>
+
         </Routes>
         <BottomNav></BottomNav>
       </BrowserRouter>

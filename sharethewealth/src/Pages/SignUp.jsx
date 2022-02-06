@@ -20,6 +20,7 @@ function SignUp() {
                 <button type="button" className="btn btn-primary sign-in-in" onClick={() => { navigate(`/portal`) }}>SIGN UP</button>
                 
             </div>
+
         </>
     );
 }

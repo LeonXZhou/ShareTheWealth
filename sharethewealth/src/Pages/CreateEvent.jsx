@@ -6,28 +6,30 @@ export default function CreateEvent() {
     const [formState, setFormState] = useState({ name: "", date: "" });
     let navigate = useNavigate();
     return (
-        <div>
-            <h1>Create Event</h1>
-            <form onSubmit={(e) => { e.preventDefault() }}>
-                <label>Event Name</label>
-                <input type={"text"} value={formState.name} onSubmit={(e) => { e.preventDefault() }} onChange={(e) => {
+
+        <div className="contentContainer">
+            <p className="create-event-title">CREATE AN EVENT</p>
+            <form>
+                <div className="firstContent">
+                    <label><p className="smallTitle">NAME OF EVENT</p></label>
+                    <input className="form-control" type="text" placeholder="ENTER NAME OF EVENT" value={formState.name} onSubmit={(e)=>{e.preventDefault()}} onChange={(e) => {
                     setFormState((prev) => {
                         const newState = { ...prev, name: e.target.value }
                         return newState;
-                    })
-                }}></input>
-                <label>Event Date</label>
-                <input type={"date"} value={formState.date} onChange={(e) => {
+                        })
+                    }}></input>
+                </div>
+                <div className="secondContent">
+                <label><p className="smallTitle">DATE OF EVENT</p></label>
+                    <input className="form-control" type="date" value={formState.date} onChange={(e) => {
+
                     setFormState((prev) => {
                         const newState = { ...prev, date: e.target.value }
                         return newState;
                     })
-                }}></input>
-                <button onClick={() => {
-                    insertOccassionsByUserId(1, formState.name, formState.date)
-                        .then((res) => { console.log(res.data)
-                            navigate(`/event/${res.data[0][0]}`) })
-                }}> Create </button>
+                    }}></input>
+                </div>
+                <button onClick className="btn btn-primary create-this-event"> Create Event </button>
             </form>
         </div>
     );
