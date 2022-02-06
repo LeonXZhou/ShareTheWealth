@@ -140,14 +140,8 @@ form.activity-add div {
 }
 
 .activities-list {
-<<<<<<< HEAD
-    margin-top: 265px;
-    overflow: scroll;
-    z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000;
-=======
     margin-top: 250px !important;
     overflow: scroll !important;
     height: 60%;
     z-index: 100000000000000000000000000000000000000000000000000;
->>>>>>> master
 }
