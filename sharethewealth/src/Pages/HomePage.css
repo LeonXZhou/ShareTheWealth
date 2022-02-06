@@ -25,7 +25,7 @@ body {
     bottom: 60px;
     margin: auto;
     border-radius: 5px;
-    width: 210px;
+    width: 56%;
     height: 40px;
 }
 
@@ -38,6 +38,6 @@ body {
     bottom: 0;
     margin: auto;
     border-radius: 5px;
-    width: 210px;
+    width: 65%;
     height: 40px;
 }

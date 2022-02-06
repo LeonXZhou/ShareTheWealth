@@ -1,32 +1,23 @@
-import { useNavigate} from "react-router-dom";
+import './Activity.css'
+import { useNavigate } from 'react-router'
 
 function Activity() {
     let navigate = useNavigate();
-    return (
-        <div className="activityContainer">
-            <table> 
-                <tr>
-                    <td style = "width:50%"> <q>Activity Name</q> </td>
-                    <td> <q>$0.00</q> </td>
-                    <td> <button type="button" onClick={() => {navigate(`/create-event`)}}><i class="fas fa-chevron-circle-down"></i></button> </td>
-                </tr>
-                <tr>
-                    <td style = "width:50%"> <q>Activity Details </q> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td style = "width:50%"> <q>Enter Your Budget</q> </td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td style = "width:50%"> <q>Activity Details </q> </td>
-                    <td> </td>
-                    <td> <button type="button" className="btn btn-primary save" onClick={() => {navigate(`/create-event`)}}><q>Save</q></button> </td>
-                </tr>
-            </table>
-        </div>
-    );
+
+    return <activity className={"activity"}>
+        <a>
+            <p>Activity Name</p>
+        </a>
+        <a> 
+            <p>$0.00</p> 
+        </a>
+        <a onClick={(e) => {
+            e.preventDefault();
+            navigate('/profile')
+        }}>
+            <i class="fas fa-chevron-circle-down"></i>
+        </a>
+    </activity>
 }
+
 export default Activity;

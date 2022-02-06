@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-q {
+p {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 500;
     color: rgb(255, 255, 255);
-    padding: 15px;
+    padding: 5px;
+    float: left;
 }
 
-.activityContainer {
-    background-color: white;
+.activity {
+    padding: 5px;
+    background-color: blue;
     position: absolute;
     top: 0;
     left: 0;
@@ -17,12 +19,12 @@ q {
     bottom: 60px;
     margin: auto;
     border-radius: 5px;
-    width: 20px;
-    height: 40px;
+    width: 90%;
+    height: 60%;
 }
 
 .save {
-    background-color: blue;
+    background-color: rgb(0, 161, 255);
     position: absolute;
     top: 0;
     left: 0;
