@@ -10,6 +10,7 @@ import SignIn from "./Pages/SignIn";
 // import SignUp from "./Pages/SignUp";
 import Profile from "./Pages/Profile";
 import MyEvents from "./Pages/MyEvents";
+import Event from "./Pages/Event";
 import Portal from "./Pages/Portal";
 
 function App() {
@@ -18,7 +19,6 @@ function App() {
       <BrowserRouter>
         <Title></Title>
         <Routes>
-
           <Route path="/" element={<HomePage/>} />
           <Route path="/sign-in" element={<SignIn />} />
           {/* <Route path="/sign-up" element={<SignUp />} /> */}
@@ -27,7 +27,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/my-events" element={<MyEvents/>} />
           <Route path="/portal" element={<Portal />} />
-
+          <Route path="/event/:event_id" element={<Event/>}/>
         </Routes>
         <BottomNav></BottomNav>
       </BrowserRouter>

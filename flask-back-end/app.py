@@ -145,7 +145,7 @@ def createNeededTables():
 @app.route("/api/user/<int:user_id>/occasion")
 def getOccasionsFromId(user_id):
     cur = conn.cursor()
-    cur.execute("""select * from occasion join participants on occasion.id = occasion_id where user_id = %s;""", (user_id,))
+    cur.execute("""select occasion.id,occasion  from occasion join participants on occasion.id = occasion_id where user_id = %s;""", (user_id,))
     return(jsonify(cur.fetchall()))
 
 @app.route("/api/occasion/<int:occasion_id>/activities")
@@ -154,9 +154,14 @@ def getActivitiesFromOccasion(occasion_id):
     cur.execute("""select * from activities where occasion_id = %s;""", (occasion_id,))
     return(jsonify(cur.fetchall()))
 
+@app.route("/api/occasion/<int:occasion_id>")
+def getOccasionById(occasion_id):
+    cur = conn.cursor()
+    cur.execute("""select * from occasion where occasion.id = %s;""", (occasion_id,))
+    return(jsonify(cur.fetchall()))
+
 @app.route("/api/post/occasion", methods=['POST'])
 def postOccasion():
-
     cur = conn.cursor()
    
     if not request.json or not 'date' in request.json or not 'name' in request.json:
@@ -168,12 +173,13 @@ def postOccasion():
     cur.execute("""
     INSERT INTO occasion (date, name)
     VALUES
-    (%(str1)s, %(str2)s);
+    (%(str1)s, %(str2)s)
+    RETURNING *;
     """, 
     {'str1':request.json['date'], 'str2': request.json['name']})
 
     conn.commit()
-    return "Post request successful"
+    return (jsonify(cur.fetchall()))
 
 @app.route("/api/occasion/<int:occasion_id>/activity", methods=['POST'])
 def postActivity(occasion_id):
