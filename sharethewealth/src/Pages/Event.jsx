@@ -23,31 +23,33 @@ export default function Event() {
     )
     return (
         <>
-            <div>Event Name: {eventState.name}</div>
-            <div>Event Date: {eventState.date}</div>
+        <div className="activity-portal-container">
+            <div className="activity-portal-title">Event Name: {eventState.name}</div>
+            <div className = "activity-portal-subtitle">Date: {eventState.date}</div>
             {activitiesList}
             <form className={"activity-add"} onSubmit={(e) => { e.preventDefault() }}>
-                <div>
-                    <label>Activity Name</label>
-                    <input type={'text'} value={formState.name} onChange={(e) => {
+                <div className="activity-name-field">
+                    <label className = "activity-name-subtitle">Activity Name</label>
+                        <input className="form-control" type="text" placeholder="Enter Activity Name" value={formState.name} onChange={(e) => {
                         setFormState((prev) => { return { ...prev, name: e.target.value } })
                     }}></input>
                 </div>
-                <div>
-                    <label>Goal Amount</label>
-                    <input type={'number'} value={formState.cost} onChange={(e) => {
+                    <div className="price-field">
+                    <label className = "activity-goal-subtitle">Goal Amount</label>
+                        <input className="form-control" type="text" placeholder="Enter Estimated $" value={formState.cost} onChange={(e) => {
                         setFormState((prev) => { return { ...prev, cost: e.target.value } })
                     }}></input>
                 </div>
             </form>
-            <button onClick={(e) => {
+                <button className= "btn btn-primary add-activity-portal" onClick={(e) => {
                 e.preventDefault()
                 insertActitivityByOccassionId(params.event_id, formState.name, formState.cost)
                     .then(() => {
                         getActivitiesByOccassionId(params.event_id)
                             .then((res) => { setActivityState(res.data) })
                     })
-            }}>add</button>
+            }}>CREATE EVENT</button>
+        </div>
         </>
     );
 }
