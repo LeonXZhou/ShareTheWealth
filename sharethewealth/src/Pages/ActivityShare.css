@@ -3,9 +3,10 @@ body {
     font-family: 'Poppins', sans-serif !important;
 }
 
-.contentContainer {
+.activity-share-container {
     background-color: white;
     position: absolute;
+    z-index: -5;
     top: 0;
     left: 0;
     right: 0;
@@ -16,53 +17,46 @@ body {
     height: 86%;
 }
 
-.smallContent1 {
+.activity-share-title {
+    z-index: -5;
+    color: black;
     position: absolute;
-    font-weight: 600;
-    top: 0;
-    left: 0;
+    top: 2% !important;
+    left: 5.4% !important;
     right: 0;
-    bottom: 80px;
+    bottom: 0;
     margin: auto;
-    border-radius: 5px;
-    width: 70%;
-    height: 40px;
+    font-size: 18px !important;
+    font-weight: 600;
+    padding: 20px;
 }
 
-.smallContent2 {
+.activity-share-subtitle {
+    z-index: -5;
+    color: black;
+    font-size: 18px !important;
     position: absolute;
     font-weight: 600;
-    top: 200px;
-    left: 0;
-    right: 0;
-    bottom: 80px;
-    margin: auto;
-    border-radius: 5px;
-    width: 70%;
-    height: 40px;
-}
-
-.subtitle {
-    color: rgb(0, 0, 0);
-    font-size: 15px;
-    position: absolute;
-    font-weight: 600;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 100px;
-    margin: auto;
-}
-
-.create-activity {
-    position: absolute;
-    font-weight: 600;
-    top: 300px;
-    left: 110px;
+    top: 9% !important;
+    left: 9% !important;
     right: 0;
     bottom: 60px;
     margin: auto;
+}
+
+.activity-share-list {
+    z-index: -5;
+    position: absolute;
+    font-weight: 600;
+    top: 10%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     border-radius: 5px;
-    width: 180px;
+    width: 98% !important;
     height: 40px;
+    overflow: scroll !important;
+    height: 70%;
+    z-index: 100000000000000000000000000000000000000000000000000;
 }

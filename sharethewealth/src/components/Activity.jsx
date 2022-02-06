@@ -1,25 +1,55 @@
 import './Activity.css'
-import { useNavigate } from 'react-router'
+import { useState } from 'react'
 
-function Activity() {
-    <div className="accordion accordion-flush">
-        <button className="accordion-toggle collapsed event-container" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false">
-            <div className="event-name">
-                <p className="activity-name">Activity Name</p>
-            </div>
-            <div className="price">
-                <p className="activity-name">~$25.46</p>
-            </div>
-            <div className="drop-down">
-                <p className="activity-name"><i class="fas fa-chevron-circle-down dropdown-icon"></i></p>
-            </div>
-        </button>
-        <div id="collapse1" class="accordion-collapse collapse">
-            <div class="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is thin the <code>.accordion-body</code>, though the transition does limit overflow.
+function Activity(props) {
+    const [expandState, setExpandState] = useState('collapse')
+    const [pledgeState, setPledgeState] = useState('0.00');
+    let pledgeNumber = 0;
+    let goalNumber = 0.000000000001;
+    if (props.pledge) {
+        pledgeNumber = Number(props.pledge.substring(1));
+    }
+    if (props.goal) {
+        goalNumber = Number(props.goal.substring(1));
+    }
+    return (
+        <div className="accordion accordion-flush">
+            <button className="accordion-toggle collapsed event-container" type="button" onClick={() => {
+                setExpandState((prev) => {
+                    if (prev === 'collapse') {
+                        return '';
+                    }
+                    return 'collapse';
+                })
+            }} aria-expanded="false">
+                <div className="price">
+                    <p className="activity-name">{props.name}</p>
+                </div>
+                <div className="price">
+                    <p className="activity-name">{props.goal}</p>
+                </div>
+                <div className="price">
+                    <p className="activity-name">Wealth: &nbsp;{props.pledge || "$0.00"}</p>
+                </div>
+                <div className="drop-down">
+                    <p className="activity-name"><i className="fas fa-chevron-circle-down dropdown-icon"></i></p>
+                </div>
+            </button>
+            <div id="collapse1" className={`accordion-collapse ${expandState}`}>
+                <div className="accordion-body">
+                    <form onSubmit={(e)=>{e.preventDefault()}}>
+                        <input className="form-control" type="number" value={pledgeState} onChange={(e) => {
+                            setPledgeState(e.target.value)
+                        }}></input>
+                        <button className="btn pledge"> <i class="fas fa-donate pledge-icon"></i> &nbsp;SHARETHEWEALTH</button>
+                    </form>
+                    <div className="progress">
+                        <div className="progress-bar" role="progressbar" style={{ width: `${pledgeNumber / goalNumber * 100}` + '%' }} aria-valuenow={`${pledgeNumber / goalNumber * 100}`} aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    )
 }
 
 export default Activity;
