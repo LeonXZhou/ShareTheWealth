@@ -9,6 +9,7 @@ function Portal() {
                 <button type="button" className="btn btn-primary create-event" onClick={() => { navigate(`/sign-in`) }}><i class="fas fa-plus-square plus-icon"></i> &nbsp;CREATE EVENT</button>
                 <button type="button" className="btn btn-primary join-event" onClick={() => { navigate(`/sign-up`) }}><i class="fas fa-sign-in-alt join-icon"></i> &nbsp;JOIN EVENT</button>
                 <div className="portalEventContainer">
+<<<<<<< Updated upstream
                     <p className="upcomming-events">UPCOMMING EVENTS</p>
                 </div>
 
@@ -16,6 +17,13 @@ function Portal() {
                 <div className="portalNotificationContainer">
                     <p className="notifications">NOTIFICATIONS</p>
                 </div>
+=======
+                    <div className="dashboard">
+                        <Dashboard>
+                        </Dashboard>
+                    </div>
+                </div>
+>>>>>>> Stashed changes
             </div>
 
         </>

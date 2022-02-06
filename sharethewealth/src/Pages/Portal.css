@@ -62,27 +62,11 @@ body {
     border-radius: 10px;
     width: 94%;
     height: 35%;
+    padding: 50px;;
 }
 
-.upcomming-events {
-    padding: 15px;
-    font-size: 20px;
-}
-
-.notifications {
-    padding: 15px;
-    font-size: 20px;
-}
-
-.portalNotificationContainer {
-    background-color: rgb(0, 161, 255);
-    position: absolute;
-    top: 420px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    border-radius: 10px;
-    width: 94%;
-    height: 35%;
+.dashboard{
+    color: white;
+    margin-top: 30px;
+    padding: 20px;
 }
