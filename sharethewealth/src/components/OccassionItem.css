@@ -1,0 +1,6 @@
+div.OccassionItem {
+    display:flex;
+    justify-content: space-between;
+    background-color:rgb(0, 161, 255);
+    margin: 10 px;
+}
