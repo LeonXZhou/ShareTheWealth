@@ -1,14 +1,16 @@
-import { checkPropTypes } from "prop-types";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate} from "react-router-dom";
+import "./HomePage.css";
+
 function HomePage() {
     let navigate = useNavigate();
     return (
         <>
-            <div>
-                Welcome!
+            <div className="contentContainer">
+                <button type="button" className="btn btn-primary sign-in" onClick={() => { navigate(`/sign-in`) }}>SIGN IN</button>
+                <button type="button" className="btn btn-primary create" onClick={() => { navigate(`/create-event`) }}>CREATE AN ACCOUNT</button>
             </div>
-            <button type="button" className="btn btn-primary" onClick={() => { navigate(`/create-event`) }}> Create New Event</button>
-            <button type="button" className="btn btn-primary" onClick={() => { navigate(`/create-event`) }}> Join Event</button>
+
         </>
     );
 }
