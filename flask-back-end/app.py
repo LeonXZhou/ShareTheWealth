@@ -9,7 +9,7 @@ load_dotenv()
 up.uses_netloc.append("postgres")
 
 secret = os.getenv('url')
-print(secret)
+
 url = up.urlparse(secret)
 
 
@@ -58,14 +58,14 @@ def popTables():
     """)
 
     cur.execute("""
-    INSERT INTO activities (occasion_id, total_cost)
+    INSERT INTO activities (name, occasion_id, total_cost)
     VALUES
-    (1, 50.00),
-    (1, 75.00),
-    (2, 17500.00),
-    (2, 30000.00),
-    (3, 0.02),
-    (3, 0.99);
+    ('Activity 1A', 1, 50.00),
+    ('Activity 1B', 1, 75.00),
+    ('Activity 2A', 2, 17500.00),
+    ('Activity 2B', 2, 30000.00),
+    ('Activity 3A', 3, 0.02),
+    ('Activity 3B', 3, 0.99);
     """)
 
     cur.execute("""
@@ -101,8 +101,8 @@ def popTables():
 @app.route("/createDataTables")
 def createNeededTables():
     cur = conn.cursor()
-    cur.execute(""" DROP TABLE IF EXISTS occasion CASCADE;
-                    CREATE TABLE occasion(
+    cur.execute(""" DROP TABLE IF EXISTS occasion CASCADE; """)
+    cur.execute("""CREATE TABLE occasion(
                         id SERIAL PRIMARY KEY NOT NULL,
                         date DATE NOT NULL,
                         name VARCHAR(255) NOT NULL
@@ -119,6 +119,7 @@ def createNeededTables():
     cur.execute(""" DROP TABLE IF EXISTS activities CASCADE;
                     CREATE TABLE activities(
                         id SERIAL PRIMARY KEY NOT NULL,
+                        name VARCHAR(255) NOT NULL,
                         occasion_id INT REFERENCES occasion(id),
                         total_cost MONEY NOT NULL
                         );""")
@@ -155,7 +156,7 @@ def getActivitiesFromOccasion(occasion_id):
 
 @app.route("/api/post/occasion", methods=['POST'])
 def postOccasion():
-    print("asdf")
+
     cur = conn.cursor()
    
     if not request.json or not 'date' in request.json or not 'name' in request.json:
@@ -173,6 +174,25 @@ def postOccasion():
 
     conn.commit()
     return "Post request successful"
+
+@app.route("/api/occasion/<int:occasion_id>/activity", methods=['POST'])
+def postActivity(occasion_id):
+    cur = conn.cursor()
+    if not request.json or not 'name' in request.json or not 'occasion_id' in request.json or not 'total_cost' in request.json:
+        abort(400)
+    
+    cur.execute("""
+    INSERT INTO activities (name, occasion_id, total_cost)
+    VALUES
+    (%(str0)s, %(str1)s, %(str2)s);
+    """,
+    {'str0':request.json['name'], 'str1':occasion_id, 'str2':request.json['total_cost']})
+
+    conn.commit()
+    return "Post request successful"
+
+
+
 
     
 
