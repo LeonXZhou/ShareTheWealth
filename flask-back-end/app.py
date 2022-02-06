@@ -250,6 +250,34 @@ def postActivity(occasion_id):
     conn.commit()
     return "Post request successful"
 
+
+
+
+@app.route("/api/activity/<int:activity_id>", methods = ['DELETE'])
+def deleteActivity(activity_id):
+    cur = conn.cursor()
+
+    cur.execute("""
+    DELETE FROM event_contribution WHERE activities_id = %(str)s
+    """,
+    {'str': activity_id}
+    )
+    
+    cur.execute("""
+    DELETE FROM activities WHERE id = %(str)s
+    """,
+    {'str': activity_id}
+    )
+
+    
+
+    conn.commit()
+    return "Activity deleted successfully"
+
+    
+
+
+
 @app.route("/<int:task_id>", methods=['GET'])
 def get_test(task_id):
     task = [task for task in test if task['id'] == task_id]
