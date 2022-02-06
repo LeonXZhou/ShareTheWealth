@@ -108,12 +108,13 @@ def postOccasion():
     cur.execute("""
     INSERT INTO occasion (date, name)
     VALUES
-    (%(str1)s, %(str2)s);
+    (%(str1)s, %(str2)s)
+    RETURNING *;
     """, 
     {'str1':request.json['date'], 'str2': request.json['name']})
 
     conn.commit()
-    return "Post request successful"
+    return (jsonify(cur.fetchall()))
 
     
 

@@ -1,15 +1,16 @@
 import "./CreateEvent.css";
 import { useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router";
 import { getOccassionsByUserId } from "../Helpers/apiHelpers";
 export default function CreateEvent() {
-    const [formState, setFormState] = useState({ name:"", date:"" });
+    const [formState, setFormState] = useState({ name: "", date: "" });
+    let navigate = useNavigate();
     return (
         <div>
             <h1>Create Event</h1>
-            <form onSubmit={(e)=>{e.preventDefault()}}>
+            <form onSubmit={(e) => { e.preventDefault() }}>
                 <label>Event Name</label>
-                <input type={"text"} value={formState.name} onSubmit={(e)=>{e.preventDefault()}} onChange={(e) => {
+                <input type={"text"} value={formState.name} onSubmit={(e) => { e.preventDefault() }} onChange={(e) => {
                     setFormState((prev) => {
                         const newState = { ...prev, name: e.target.value }
                         return newState;
@@ -22,9 +23,10 @@ export default function CreateEvent() {
                         return newState;
                     })
                 }}></input>
-                <button onClick={()=>{
-                    getOccassionsByUserId(1,formState.name,formState.date)
-                    .then((res)=>{console.log(res)})
+                <button onClick={() => {
+                    getOccassionsByUserId(1, formState.name, formState.date)
+                        .then((res) => { console.log(res.data)
+                            navigate(`/event/${res.data[0][0]}`) })
                 }}> Create </button>
             </form>
         </div>
