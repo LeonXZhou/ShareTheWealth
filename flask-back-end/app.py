@@ -153,6 +153,12 @@ def getActivitiesFromOccasion(occasion_id):
     cur.execute("""select * from activities where occasion_id = %s;""", (occasion_id,))
     return(jsonify(cur.fetchall()))
 
+@app.route("/api/occasion/<int:occasion_id>")
+def getOccasionById(occasion_id):
+    cur = conn.cursor()
+    cur.execute("""select * from occasion where occasion.id = %s;""", (occasion_id,))
+    return(jsonify(cur.fetchall()))
+
 @app.route("/api/post/occasion", methods=['POST'])
 def postOccasion():
     print("asdf")

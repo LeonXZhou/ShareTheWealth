@@ -10,5 +10,10 @@ export function insertOccassionsByUserId(user_id,name,date)
 
 export function getOccassionInfoById(id)
 {
-    
+    return axios.get(`/api/occasion/${id}`)
+}
+
+export function getActivitiesByOccassionId(id)
+{
+    return axios.get(`/api/occasion/${id}/activities`)
 }

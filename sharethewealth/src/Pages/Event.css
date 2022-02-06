@@ -1,0 +1,9 @@
+form.activity-add {
+    display:flex;
+    flex-direction:row;
+}
+
+form.activity-add div{
+    display:flex;
+    flex-direction:column;
+}

@@ -1,7 +1,7 @@
 import "./CreateEvent.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { getOccassionsByUserId } from "../Helpers/apiHelpers";
+import { insertOccassionsByUserId } from "../Helpers/apiHelpers";
 export default function CreateEvent() {
     const [formState, setFormState] = useState({ name: "", date: "" });
     let navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function CreateEvent() {
                     })
                 }}></input>
                 <button onClick={() => {
-                    getOccassionsByUserId(1, formState.name, formState.date)
+                    insertOccassionsByUserId(1, formState.name, formState.date)
                         .then((res) => { console.log(res.data)
                             navigate(`/event/${res.data[0][0]}`) })
                 }}> Create </button>
