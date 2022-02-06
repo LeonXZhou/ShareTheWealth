@@ -31,6 +31,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .firstContent {
@@ -70,4 +71,5 @@ form {
     border-radius: 5px;
     width: 40% !important;
     height: 40px;
+
 }

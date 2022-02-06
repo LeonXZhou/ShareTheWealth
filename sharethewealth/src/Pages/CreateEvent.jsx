@@ -1,8 +1,12 @@
 import "./CreateEvent.css";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { insertOccassionsByUserId } from "../Helpers/apiHelpers";
 export default function CreateEvent() {
-    const [formState, setFormState] = useState({ name:"", date:"" });
+    const [formState, setFormState] = useState({ name: "", date: "" });
+    let navigate = useNavigate();
     return (
+
         <div className="contentContainer">
             <p className="create-event-title">CREATE AN EVENT</p>
             <form>
@@ -18,6 +22,7 @@ export default function CreateEvent() {
                 <div className="secondContent">
                 <label><p className="smallTitle">DATE OF EVENT</p></label>
                     <input className="form-control" type="date" value={formState.date} onChange={(e) => {
+
                     setFormState((prev) => {
                         const newState = { ...prev, date: e.target.value }
                         return newState;
