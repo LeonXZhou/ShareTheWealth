@@ -13,13 +13,13 @@ export default function BottomNav() {
         </a>
         <a onClick={(e) => {
             e.preventDefault();
-            navigate('/my-events')
+            navigate('/portal')
         }}>
             <i className="fas fa-calendar-check fa-lg"></i>
         </a>
         <a onClick={(e) => {
             e.preventDefault();
-            navigate('/profile')
+            navigate('/')
         }}>
             <i className="fas fa-user fa-lg"></i>
         </a>
