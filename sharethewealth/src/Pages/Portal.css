@@ -62,11 +62,13 @@ body {
     border-radius: 10px;
     width: 94%;
     height: 35%;
-    padding: 50px;;
+    padding: 50px;
+    overflow-y: scroll;
 }
 
 .dashboard{
     color: white;
     margin-top: 30px;
-    padding: 20px;
+    padding: 0px;
+    width: 120vw
 }

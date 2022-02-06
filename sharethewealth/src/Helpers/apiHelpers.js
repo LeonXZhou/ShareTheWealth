@@ -25,6 +25,10 @@ export function insertActitivityByOccassionId(id, name, cost) {
     });
 }
 
+export function getOccassionByUserId(id){
+    return axios.get(`/api/user/${id}/occasion`)
+}
+
 export function authenticate(id){
     return axios.post(`/authenticate/${id}`)
 }

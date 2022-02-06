@@ -176,7 +176,7 @@ def createNeededTables():
 @app.route("/api/user/<int:user_id>/occasion")
 def getOccasionsFromId(user_id):
     cur = conn.cursor()
-    cur.execute("""select occasion.id,occasion  from occasion join participants on occasion.id = occasion_id where user_id = %s;""", (user_id,))
+    cur.execute("""select occasion.id, occasion.name, occasion.date  from occasion join participants on occasion.id = occasion_id where user_id = %s;""", (user_id,))
     return(jsonify(cur.fetchall()))
 
 @app.route("/api/occasion/<int:occasion_id>/activities")

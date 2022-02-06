@@ -12,3 +12,6 @@ body {
     bottom: 75% !important;
     margin: auto;
 }
+div.dashboard{
+    width: auto;
+}

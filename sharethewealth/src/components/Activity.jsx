@@ -1,5 +1,6 @@
 import './Activity.css'
 import { useState } from 'react'
+import Cookies from 'js-cookie'
 
 function Activity(props) {
     const [expandState, setExpandState] = useState('collapse')
@@ -41,7 +42,7 @@ function Activity(props) {
                         <input type='number' value={pledgeState} onChange={(e) => {
                             setPledgeState(e.target.value)
                         }}></input>
-                        <button>PLEDGE!</button>
+                        <button onClick={(e)=>{console.log(Cookies.get('user_id'))}}>PLEDGE!</button>
                     </form>
                     <div className="progress">
                         <div className="progress-bar" role="progressbar" style={{ width: `${pledgeNumber / goalNumber * 100}` + '%' }} aria-valuenow={`${pledgeNumber / goalNumber * 100}`} aria-valuemin="0" aria-valuemax="100"></div>
