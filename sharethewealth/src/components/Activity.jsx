@@ -20,6 +20,9 @@ function Activity(props) {
                 <div className="price">
                     <p className="activity-name">{props.goal}</p>
                 </div>
+                <div className="price">
+                    <p className="activity-name">pledge amount{props.pledge}</p>
+                </div>
                 <div className="drop-down">
                     <p className="activity-name"><i className="fas fa-chevron-circle-down dropdown-icon"></i></p>
                 </div>
