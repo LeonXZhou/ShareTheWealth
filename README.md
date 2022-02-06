@@ -9,10 +9,10 @@ We believe this app to be helpful and applicable in many situations such as for 
 ## Screenshots
 ### Home Page:
 Users can see upcoming occasions and create new occasions.
-!["Home Page"](https://github.com/LeonXZhou/Odyssey/blob/main/Documentation/Screenshots/HomePages.png)
+!["Home Page"](https://github.com/LeonXZhou/ShareTheWealth/blob/master/screenshots/ActivityOptions.png)
 ### Activity Options Page:
 Users are able add activities options and specify the goal amount needed to run that activity for the specific ocassion. 
-!["My Trips"](https://github.com/LeonXZhou/Odyssey/blob/main/Documentation/Screenshots/MyTrips.png)
+!["My Trips"](https://github.com/LeonXZhou/ShareTheWealth/blob/master/screenshots/Landing%20Page.png)
 
 ## How we built it
 To make the app as accessible as possible we decided to implement a full-stack mobile web application. To achieve this we used a React front end, with a Python based flask server on the backend, and a postgreSQL database.
