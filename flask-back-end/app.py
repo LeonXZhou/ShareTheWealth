@@ -151,7 +151,7 @@ def getOccasionsFromId(user_id):
 @app.route("/api/occasion/<int:occasion_id>/activities")
 def getActivitiesFromOccasion(occasion_id):
     cur = conn.cursor()
-    cur.execute("""select * from activities where occasion_id = %s;""", (occasion_id,))
+    cur.execute("""select id, name, total_cost from activities where occasion_id = %s;""", (occasion_id,))
     return(jsonify(cur.fetchall()))
 
 @app.route("/api/occasion/<int:occasion_id>")
@@ -184,7 +184,7 @@ def postOccasion():
 @app.route("/api/occasion/<int:occasion_id>/activity", methods=['POST'])
 def postActivity(occasion_id):
     cur = conn.cursor()
-    if not request.json or not 'name' in request.json or not 'occasion_id' in request.json or not 'total_cost' in request.json:
+    if not request.json or not 'name' in request.json or not 'total_cost' in request.json:
         abort(400)
     
     cur.execute("""
