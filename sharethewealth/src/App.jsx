@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreateEvent from "./Pages/CreateEvent";
 import Title from "./components/Title";
 import HomePage from "./Pages/HomePage";
+import SignIn from "./Pages/SignIn";
+import Activity from "./components/Activity";
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/create-event" element={<CreateEvent />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          {/* <Route path="/create-event" element={<CreateEvent />} /> */}
+          <Route path="/create-event" element={<Activity />} />
         </Routes>
       </BrowserRouter>
     </>

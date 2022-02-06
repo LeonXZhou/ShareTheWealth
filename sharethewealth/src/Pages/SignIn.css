@@ -16,28 +16,65 @@ body {
     height: 350px;
 }
 
-.sign-in {
+.email {
     position: absolute;
     font-weight: 600;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 60px;
+    bottom: 80px;
     margin: auto;
     border-radius: 5px;
     width: 210px;
     height: 40px;
 }
 
-.create {
+.email-title {
+    color: rgb(0, 0, 0);
+    font-size: 15px;
     position: absolute;
     font-weight: 600;
-    top: 60px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    margin: auto;
+}
+
+.pass {
+    position: absolute;
+    font-weight: 600;
+    top: 80px;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     border-radius: 5px;
     width: 210px;
+    height: 40px;
+}
+
+.pass-title {
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    position: absolute;
+    font-weight: 600;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    margin: auto;
+}
+
+.sign-in-in {
+    position: absolute;
+    font-weight: 600;
+    top: 300px;
+    left: 150px;
+    right: 0;
+    bottom: 60px;
+    margin: auto;
+    border-radius: 5px;
+    width: 100px;
     height: 40px;
 }
