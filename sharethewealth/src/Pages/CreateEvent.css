@@ -84,3 +84,7 @@ form {
     width: 40% !important;
     height: 40px;
 }
+
+input {
+    z-index:100;
+}
