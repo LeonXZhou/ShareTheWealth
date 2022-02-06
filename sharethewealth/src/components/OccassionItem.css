@@ -1,6 +1,18 @@
 div.OccassionItem {
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    background-color:rgb(0, 161, 255);
-    margin: 10 px;
+    background-color: rgb(13, 110, 253);
+    /* margin: 10px; */
+    padding: 10px 40px 0 40px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.occassion-text {
+    font-size: 17px !important;
+}
+
+.occassion-link{
+    cursor: pointer;
+    
 }

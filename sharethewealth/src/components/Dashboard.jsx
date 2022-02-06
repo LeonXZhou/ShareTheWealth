@@ -17,14 +17,18 @@ export default function Dashboard() {
             date: "2022-01-23"
         }
     ]
+
     const occassions = data.map((occassion) => {
         return (<OcassionItem name={occassion.name} date={occassion.date} key ={occassion.id}></OcassionItem>)
     })
 
     return (<>
     <div className={"dash"}>
-        <p className="upcomming-events">UPCOMMING EVENTS</p>
-        {occassions}
+        <div className = "upcoming-events-container"><p className="upcoming-events">UPCOMING EVENTS</p></div>
+        
+        <div className="dash-occassions">
+            {occassions}
+        </div>
     </div>
     </>)
 }
