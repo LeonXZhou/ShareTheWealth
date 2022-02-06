@@ -25,8 +25,8 @@ export default function Event() {
     return (
         <>
             <div className="activity-portal-container">
-                <div className="activity-portal-title">Event Name: {eventState.name}</div>
-                <div className="activity-portal-subtitle">Date: {eventState.date}</div>
+                <div className="activity-portal-title">EVENT NAME: {eventState.name}</div>
+                <div className="activity-portal-subtitle">DATE: {eventState.date}</div>
                 <div className="activities-list">
                     {activitiesList}
                 </div>
