@@ -2,6 +2,7 @@ from flask import *
 import os 
 from dotenv import load_dotenv
 import psycopg2
+import requests
 
 import urllib.parse as up
 
@@ -37,6 +38,35 @@ test = [
     }
 ]
 
+@app.route("/authenticate/<int:id>")
+def addCookieSimple(id):
+    resp = make_response()
+    resp.set_cookie('cookie', str(id))
+    return resp
+
+# @app.route("authenticate-<string:email>-<string:password>")
+# def addCookie(email, password):
+#     cur = conn.cursor()
+#     cur.execute("""
+#     select * from users where email = %(str1)s and password = %(str2)s;
+#     """, 
+#     {'str1':email, 'str2':password}
+#     )
+    
+#     obj1 = cur.fetchall()
+#     if(len(obj1) > 0):
+#         obj = obj1[0][0]
+#         resp = make_response()
+#         resp.set_cookie('cookie', str(obj))
+#         return resp
+#     else:
+#         return "None..."
+
+@app.route("/getcookie")
+def setCookie():
+    return request.cookies.get("cookie")
+
+
 @app.route("/fillDataTables")
 def popTables():
     cur = conn.cursor()
@@ -50,11 +80,11 @@ def popTables():
     """)
 
     cur.execute("""
-    INSERT INTO users (first_name, last_name, email)
+    INSERT INTO users (first_name, last_name, email, password)
     VALUES
-    ('Jim', 'Smith', 'jim@email.com'),
-    ('Steve', 'Johnson', 'steve@email.com'),
-    ('Amanda', 'Wilson', 'a.wilson@email.com');
+    ('Jim', 'Smith', 'jim@email.com', 'abc123'),
+    ('Steve', 'Johnson', 'steve@email.com', 'password'),
+    ('Amanda', 'Wilson', 'a.wilson@email.com', '11111');
     """)
 
     cur.execute("""
@@ -113,7 +143,8 @@ def createNeededTables():
                         id SERIAL PRIMARY KEY NOT NULL,
                         first_name VARCHAR(255) NOT NULL,
                         last_name VARCHAR(255) NOT NULL,
-                        email VARCHAR(255) NOT NULL
+                        email VARCHAR(255) NOT NULL,
+                        password VARCHAR(255) NOT NUll
                         );""")
 
     cur.execute(""" DROP TABLE IF EXISTS activities CASCADE;
@@ -183,6 +214,25 @@ def postOccasion():
 
     conn.commit()
     return (jsonify(cur.fetchall()))
+
+@app.route("/activity/<int:activities_id>/user/<int:user_id>", methods=['POST'])
+def postContribution(activities_id, user_id,):
+    cur = conn.cursor()
+    
+    if not request.json or not 'contribution_amount' in request.json:
+        abort(400)
+    
+    cur.execute("""
+    INSERT INTO event_contribution (activities_id, user_id, contribution_amount)
+    VALUES
+    (%(str1)s, %(str2)s, %(str3)s);
+    """,
+    {'str1':activities_id, 'str2':user_id, 'str3':request.json['contribution_amount']})
+
+    conn.commit()
+    return "Post request successful"
+
+
 
 @app.route("/api/occasion/<int:occasion_id>/activity", methods=['POST'])
 def postActivity(occasion_id):
