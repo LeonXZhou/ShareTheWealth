@@ -17,9 +17,10 @@ body {
 }
 
 .activity-portal-title {
+    color: black;
     position: absolute;
-    top: 30%;
-    left: 11%;
+    top: 3%;
+    left: 5%;
     right: 0;
     bottom: 0;
     margin: auto;
@@ -34,9 +35,40 @@ body {
     font-size: 15px;
     position: absolute;
     font-weight: 600;
-    top: 0;
-    left: 0;
+    top: 10%;
+    left: 7%;
     right: 0;
     bottom: 60px;
     margin: auto;
+}
+
+.add-activity-portal {
+    position: absolute;
+    font-weight: 600;
+    top: -60%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 5px;
+    width: 89%;
+    height: 40px;
+}
+
+.activity-portal-activities {
+    position: absolute;
+    font-weight: 600;
+    top: 22% !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 5px;
+    width: 94%;
+    height: auto;
+}
+
+.surround-buttons {
+    width: 90%;
+
 }
