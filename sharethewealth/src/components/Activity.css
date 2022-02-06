@@ -14,7 +14,7 @@ p {
 .event-container {
     display: flex;
     background-color: rgb(0, 153, 255);
-    width: 94%;
+    width: 83%;
     padding-bottom: 10px;
     margin-top: 20px !important;
     margin: auto;
@@ -68,6 +68,25 @@ p {
     bottom: 0;
 }
 
-.cross-circle {
+.dropdown-icon,
+cross-circle {
+    color: white;
+}
+
+.accordion-body {
+    transform: translateY(-4px);
+    width: 83%;
+    margin: auto;
+    background-color: #0099ff;
+}
+
+.pledge {
+    background-color: #17af24 !important;
+    border: none;
+    color: white;
+    margin: 10px;
+}
+
+.pledge-icon{
     color: white;
 }
