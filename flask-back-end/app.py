@@ -74,9 +74,9 @@ def popTables():
     cur.execute("""
     INSERT INTO occasion (date, name)
     VALUES
-    ('01-02-2020', 'Event 1'),
-    ('02-04-2021', 'Event 2'),
-    ('03-05-2023', 'Event 3');
+    ('11-02-2022', 'Jennys 25TH BIRTHDAY!!!'),
+    ('02-04-2022', 'TGIF'),
+    ('03-05-2022', 'BOOK CLUB RAGER');
     """)
 
     cur.execute("""
@@ -90,12 +90,13 @@ def popTables():
     cur.execute("""
     INSERT INTO activities (name, occasion_id, total_cost)
     VALUES
-    ('Activity 1A', 1, 50.00),
-    ('Activity 1B', 1, 75.00),
-    ('Activity 2A', 2, 17500.00),
-    ('Activity 2B', 2, 30000.00),
-    ('Activity 3A', 3, 0.02),
-    ('Activity 3B', 3, 0.99);
+    ('Cactus Club', 1, 200.00),
+    ('Yacht Party', 1, 400.00),
+    ('Cake at my place!', 1, 45.00),
+    ('Laser Tag', 2, 200),
+    ('Bowling', 2, 150),
+    ('Skydiving', 2, 500),
+    ('PUB CRAWLLL', 3, 300);
     """)
 
     cur.execute("""
@@ -114,14 +115,14 @@ def popTables():
     VALUES
     (1, 1, 25.00),
     (2, 1, 30.00),
-    (3, 1, 2500.00),
-    (4, 1, 15000.00),
-    (3, 2, 15000.00),
-    (4, 2, 10000.00),
-    (5, 2, 0.01),
-    (6, 2, 0.90),
-    (5, 3, 0.01),
-    (6, 3, 0.09),
+    (3, 1, 25.00),
+    (4, 1, 25.00),
+    (3, 2, 25.00),
+    (4, 2, 25.00),
+    (5, 2, 20.01),
+    (6, 2, 10.90),
+    (5, 3, 15.01),
+    (6, 3, 10.09),
     (1, 3, 25.00),
     (2, 3, 45.00);
     """)
@@ -167,7 +168,8 @@ def createNeededTables():
                         id SERIAL PRIMARY KEY NOT NULL,
                         activities_id INT REFERENCES activities(id),
                         user_id INT REFERENCES users(id),
-                        contribution_amount MONEY NOT NULL
+                        contribution_amount MONEY NOT NULL,
+                        CONSTRAINT user_activity UNIQUE (activities_id,user_id)
                         );""")
 
     conn.commit()
@@ -176,7 +178,7 @@ def createNeededTables():
 @app.route("/api/user/<int:user_id>/occasion")
 def getOccasionsFromId(user_id):
     cur = conn.cursor()
-    cur.execute("""select occasion.id,occasion  from occasion join participants on occasion.id = occasion_id where user_id = %s;""", (user_id,))
+    cur.execute("""select occasion.id, occasion.name, occasion.date  from occasion join participants on occasion.id = occasion_id where user_id = %s;""", (user_id,))
     return(jsonify(cur.fetchall()))
 
 @app.route("/api/occasion/<int:occasion_id>/activities")
@@ -215,7 +217,7 @@ def postOccasion():
     conn.commit()
     return (jsonify(cur.fetchall()))
 
-@app.route("/activity/<int:activities_id>/user/<int:user_id>", methods=['POST'])
+@app.route("/api/activity/<int:activities_id>/user/<int:user_id>", methods=['POST'])
 def postContribution(activities_id, user_id,):
     cur = conn.cursor()
     
@@ -225,13 +227,14 @@ def postContribution(activities_id, user_id,):
     cur.execute("""
     INSERT INTO event_contribution (activities_id, user_id, contribution_amount)
     VALUES
-    (%(str1)s, %(str2)s, %(str3)s);
+    (%(str1)s, %(str2)s, %(str3)s)
+    ON CONFLICT ON CONSTRAINT user_activity DO UPDATE 
+    SET contribution_amount= %(str3)s;
     """,
     {'str1':activities_id, 'str2':user_id, 'str3':request.json['contribution_amount']})
 
     conn.commit()
     return "Post request successful"
-
 
 
 @app.route("/api/occasion/<int:occasion_id>/activity", methods=['POST'])

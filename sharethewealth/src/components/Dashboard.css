@@ -12,7 +12,9 @@ body {
     bottom: 75% !important;
     margin: auto;
 }
-
+div.dashboard{
+    width: auto;
+}
 .upcoming-events-container {
     background-color: rgb(0, 161, 255);
     position: absolute;
