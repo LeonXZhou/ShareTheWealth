@@ -29,15 +29,6 @@ export default function Event() {
                 <div className="activity-share-subtitle">DATE: {eventState.date}</div>
                 <div className="activity-share-list">
                     {activitiesList}
-                    <Activity name={"Museum Trip"} goal={"$300.00"} pledge={"$100.00"}></Activity>
-                    <Activity name={"Toronto Trip"} goal={"$300.00"} pledge={"$50.00"}></Activity>
-                    <Activity name={"Paris Trip"} goal={"$300.00"} pledge={"$50.00"}></Activity>
-                    <Activity name={"Museum Trip"} goal={"$300.00"} pledge={"$100.00"}></Activity>
-                    <Activity name={"Toronto Trip"} goal={"$300.00"} pledge={"$50.00"}></Activity>
-                    <Activity name={"Paris Trip"} goal={"$300.00"} pledge={"$50.00"}></Activity>
-                    <Activity name={"Museum Trip"} goal={"$300.00"} pledge={"$100.00"}></Activity>
-                    <Activity name={"Toronto Trip"} goal={"$300.00"} pledge={"$50.00"}></Activity>
-                    <Activity name={"Paris Trip"} goal={"$300.00"} pledge={"$50.00"}></Activity>
                 </div>
             </div>
         </>

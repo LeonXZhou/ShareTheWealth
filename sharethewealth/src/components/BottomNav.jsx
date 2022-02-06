@@ -7,7 +7,7 @@ export default function BottomNav() {
     return <nav className={"navbar fixed-bottom"}>
         <a onClick={(e) => {
             e.preventDefault();
-            navigate('/')
+            navigate('/portal')
         }}>
             <i className="fas fa-home fa-lg"></i>
         </a>

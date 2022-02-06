@@ -57,7 +57,7 @@ export default function Event() {
                             getActivitiesByOccassionId(params.event_id)
                                 .then((res) => { setActivityState(res.data) })
                         })
-                }}>CREATE EVENT</button>
+                }}>CREATE NEW EVENT</button>
             </div>
         </>
     );
