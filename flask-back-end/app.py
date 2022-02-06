@@ -37,6 +37,66 @@ test = [
     }
 ]
 
+@app.route("/fillDataTables")
+def popTables():
+    cur = conn.cursor()
+
+    cur.execute("""
+    INSERT INTO occasion (date, name)
+    VALUES
+    ('01-02-2020', 'Event 1'),
+    ('02-04-2021', 'Event 2'),
+    ('03-05-2023', 'Event 3');
+    """)
+
+    cur.execute("""
+    INSERT INTO users (first_name, last_name, email)
+    VALUES
+    ('Jim', 'Smith', 'jim@email.com'),
+    ('Steve', 'Johnson', 'steve@email.com'),
+    ('Amanda', 'Wilson', 'a.wilson@email.com');
+    """)
+
+    cur.execute("""
+    INSERT INTO activities (occasion_id, total_cost)
+    VALUES
+    (1, 50.00),
+    (1, 75.00),
+    (2, 17500.00),
+    (2, 30000.00),
+    (3, 0.02),
+    (3, 0.99);
+    """)
+
+    cur.execute("""
+    INSERT INTO participants (user_id, occasion_id)
+    VALUES
+    (1, 1),
+    (1, 2),
+    (2, 2),
+    (2, 3),
+    (3, 3),
+    (3, 1);
+    """)
+
+    cur.execute("""
+    INSERT INTO event_contribution (activities_id, user_id, contribution_amount)
+    VALUES
+    (1, 1, 25.00),
+    (2, 1, 30.00),
+    (3, 1, 2500.00),
+    (4, 1, 15000.00),
+    (3, 2, 15000.00),
+    (4, 2, 15000.00),
+    (5, 2, 0.01),
+    (6, 2, 0.90),
+    (5, 3, 0.01),
+    (6, 3, 0.09),
+    (1, 3, 25.00),
+    (2, 3, 45.00);
+    """)
+    conn.commit()
+    return "Populated data tables"
 
 @app.route("/createDataTables")
 def createNeededTables():
