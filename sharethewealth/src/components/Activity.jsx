@@ -38,10 +38,10 @@ function Activity(props) {
             <div id="collapse1" className={`accordion-collapse ${expandState}`}>
                 <div className="accordion-body">
                     <form onSubmit={(e)=>{e.preventDefault()}}>
-                        <input type='number' value={pledgeState} onChange={(e) => {
+                        <input className="form-control" type="number" value={pledgeState} onChange={(e) => {
                             setPledgeState(e.target.value)
                         }}></input>
-                        <button>PLEDGE!</button>
+                        <button className="btn pledge"> <i class="fas fa-donate pledge-icon"></i> &nbsp;PLEDGE</button>
                     </form>
                     <div className="progress">
                         <div className="progress-bar" role="progressbar" style={{ width: `${pledgeNumber / goalNumber * 100}` + '%' }} aria-valuenow={`${pledgeNumber / goalNumber * 100}`} aria-valuemin="0" aria-valuemax="100"></div>

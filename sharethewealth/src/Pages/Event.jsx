@@ -29,7 +29,6 @@ export default function Event() {
                 <div className="activity-portal-subtitle">Date: {eventState.date}</div>
                 <div className="activities-list">
                     {activitiesList}
-                    <Activity></Activity>
                 </div>
                 <form className={"activity-add"} onSubmit={(e) => { e.preventDefault() }}>
                     <div className="activity-name-field">
