@@ -9,27 +9,32 @@ export default function CreateEvent() {
 
         <div className="contentContainer">
             <p className="create-event-title">CREATE AN EVENT</p>
-            <form>
+            <form onSubmit={(e)=>{e.preventDefault()}}>
                 <div className="firstContent">
                     <label><p className="smallTitle">NAME OF EVENT</p></label>
-                    <input className="form-control" type="text" placeholder="ENTER NAME OF EVENT" value={formState.name} onSubmit={(e)=>{e.preventDefault()}} onChange={(e) => {
-                    setFormState((prev) => {
-                        const newState = { ...prev, name: e.target.value }
-                        return newState;
+                    <input className="form-control" type="text" placeholder="ENTER NAME OF EVENT" value={formState.name} onSubmit={(e) => { e.preventDefault() }} onChange={(e) => {
+                        setFormState((prev) => {
+                            const newState = { ...prev, name: e.target.value }
+                            return newState;
                         })
                     }}></input>
                 </div>
                 <div className="secondContent">
-                <label><p className="smallTitle">DATE OF EVENT</p></label>
+                    <label><p className="smallTitle">DATE OF EVENT</p></label>
                     <input className="form-control" type="date" value={formState.date} onChange={(e) => {
 
-                    setFormState((prev) => {
-                        const newState = { ...prev, date: e.target.value }
-                        return newState;
-                    })
+                        setFormState((prev) => {
+                            const newState = { ...prev, date: e.target.value }
+                            return newState;
+                        })
                     }}></input>
                 </div>
-                <button onClick={() => { navigate(`/activity-portal`) }} className="btn btn-primary create-this-event"> Create Event </button>
+                <button onClick={() => {
+                    insertOccassionsByUserId(1,formState.name,formState.date).then(
+                        (res)=>{
+                            navigate(`/event/${res.data[0][0]}`);
+                         } )
+                }} className="btn btn-primary create-this-event"> Create Event </button>
             </form>
         </div>
     );
