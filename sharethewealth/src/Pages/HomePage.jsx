@@ -11,7 +11,6 @@ function HomePage() {
                 <button type="button" className="btn btn-primary sign-in" onClick={() => { navigate(`/sign-in`) }}>SIGN IN</button>
                 <button type="button" className="btn btn-primary create" onClick={() => { navigate(`/sign-up`) }}>CREATE AN ACCOUNT</button>
             </div>
-            <DashBoard/>
         </>
     );
 }
