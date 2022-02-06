@@ -42,19 +42,6 @@ body {
     height: 40px;
 }
 
-.largeContent {
-    position: absolute;
-    font-weight: 600;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    border-radius: 5px;
-    width: 70%;
-    height: 90px;
-}
-
 .subtitle {
     color: rgb(0, 0, 0);
     font-size: 15px;

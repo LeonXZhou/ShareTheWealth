@@ -29,7 +29,7 @@ export default function CreateEvent() {
                     })
                     }}></input>
                 </div>
-                <button onClick className="btn btn-primary create-this-event"> Create Event </button>
+                <button onClick={() => { navigate(`/activity-portal`) }} className="btn btn-primary create-this-event"> Create Event </button>
             </form>
         </div>
     );
