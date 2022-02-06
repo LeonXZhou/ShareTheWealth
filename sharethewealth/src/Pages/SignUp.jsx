@@ -6,7 +6,7 @@ function SignUp() {
     return (
         <>
             <div className="contentContainer">
-
+                <h1 className="create-event-title">SIGN-UP</h1>
                 <div className="email">
                     <span className="email-title">EMAIL ADDRESS</span>
                     <input className="form-control" type="text" placeholder="Enter Email Address"></input>

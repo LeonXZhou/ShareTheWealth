@@ -8,7 +8,7 @@ export default function CreateEvent() {
     return (
 
         <div className="contentContainer">
-            <p className="create-event-title">CREATE AN EVENT</p>
+            <h1 className="create-event-title">CREATE AN EVENT</h1>
             <form onSubmit={(e)=>{e.preventDefault()}}>
                 <div className="firstContent">
                     <label><p className="smallTitle">NAME OF EVENT</p></label>
