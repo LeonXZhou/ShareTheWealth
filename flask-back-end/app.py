@@ -244,7 +244,26 @@ def postActivity(occasion_id):
 
 
 
+@app.route("/api/activity/<int:activity_id>", methods = ['DELETE'])
+def deleteActivity(activity_id):
+    cur = conn.cursor()
+
+    cur.execute("""
+    DELETE FROM event_contribution WHERE activities_id = %(str)s
+    """,
+    {'str': activity_id}
+    )
     
+    cur.execute("""
+    DELETE FROM activities WHERE id = %(str)s
+    """,
+    {'str': activity_id}
+    )
+
+    
+
+    conn.commit()
+    return "Activity deleted successfully"
 
     
 
