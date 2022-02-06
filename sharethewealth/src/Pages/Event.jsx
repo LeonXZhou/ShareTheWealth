@@ -18,7 +18,7 @@ export default function Event() {
     }, [])
 
     const activitiesList = activityState.map((activity) => {
-        return (<div key={activity[0]}>Name: {activity[1]},----------Total Goal:{activity[2]}</div>)
+        return (<div key={activity[0]}>Name: {activity[1]}--Total Goal:{activity[2]}--Current Pledge:{activity[3]} </div>)
     })
     return (
         <>
