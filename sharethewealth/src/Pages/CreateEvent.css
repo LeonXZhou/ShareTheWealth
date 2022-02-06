@@ -30,8 +30,6 @@ body {
 form {
     display: flex;
     flex-direction: column;
-<<<<<<< Updated upstream
-=======
     align-items: center;
 }
 
@@ -72,5 +70,4 @@ form {
     border-radius: 5px;
     width: 40% !important;
     height: 40px;
->>>>>>> Stashed changes
 }
