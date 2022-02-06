@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+# Share The Wealth
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+
+When we consider inclusion and diversity, we often gravitate towards divisions amoungst race, gender, and sexuality. We often don't think about one of the greatest divides amongst us, wealth inequality. Share The Wealth is an event-planning app that aims to minimize this divide.
+
+Share The Wealth allows a group to anonymously and inclusively consider the available financial resources for any event. An organizer is able to construct a list of activities at different levels of cost and invite their potential attendees to anonymously indicate how much they can spend for each activity. The goal is to be considerate to those that may not be able to afford certain activities and to allow those who might be willing to pay more for a certain event to occur to potentially cover a portion of someone else. The organizer is able to see the total amount the attendees are willing to pay and can then decide what is possible for the group budget. Then, each attendee pays what they said they could, some may pay more, while some less.
+
+We believe this app to be helpful and applicable in many situations such as for school events like field trips, work events like an annual office party, and even recreational events like a friday night out. Our eventual goal is that through use of this app people become more aware of wealth inequality and are encouraged to take other's financial capacities into consideration in the future.
+
+## Authors 
+
+Sophia Chu 
+
+## Acknowledgements 
+
+This project was bootstrapped with Create React App.
+(https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
