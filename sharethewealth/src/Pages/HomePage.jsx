@@ -8,7 +8,7 @@ function HomePage() {
         <>
             <div className="contentContainer">
                 <button type="button" className="btn btn-primary sign-in" onClick={() => { navigate(`/sign-in`) }}>SIGN IN</button>
-                <button type="button" className="btn btn-primary create" onClick={() => { navigate(`/create-event`) }}>CREATE AN ACCOUNT</button>
+                <button type="button" className="btn btn-primary create" onClick={() => { navigate(`/sign-up`) }}>CREATE AN ACCOUNT</button>
             </div>
 
         </>

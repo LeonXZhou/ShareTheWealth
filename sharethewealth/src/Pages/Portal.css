@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif !important;
 }
 
-.contentContainer {
+.portalContentContainer {
     background-color: white;
     position: absolute;
     top: 0;
@@ -12,69 +12,77 @@ body {
     bottom: 0;
     margin: auto;
     border-radius: 10px;
-    width: 70%;
-    height: 40%;
+    width: 94%;
+    height: 86%;
 }
 
-.email {
+.plus-icon {
+    color: white;
+}
+
+.join-icon {
+    color: white;
+}
+
+.create-event {
     position: absolute;
     font-weight: 600;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 80px;
+    /*210px */
+    bottom: 670px;
     margin: auto;
     border-radius: 5px;
-    width: 70%;
+    width: 94%;
     height: 40px;
 }
 
-.email-title {
-    color: rgb(0, 0, 0);
-    font-size: 15px;
+.join-event {
     position: absolute;
     font-weight: 600;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 100px;
+    right: 0; /*210px */
+    bottom: 570px;
     margin: auto;
+    border-radius: 5px;
+    width: 94%;
+    height: 40px;
 }
 
-.pass {
+.portalEventContainer {
+    background-color: rgb(0, 161, 255);
     position: absolute;
-    font-weight: 600;
-    top: 80px;
+    top: 85px;
+    left: 0;
+    right: 0;
+    bottom: 280px;
+    margin: auto;
+    border-radius: 10px;
+    width: 94%;
+    height: 40%;
+}
+
+.upcomming-events {
+    padding: 15px;
+    font-size: 20px;
+}
+
+.notifications {
+    padding: 15px;
+    font-size: 20px;
+}
+
+.portalNotificationContainer {
+    background-color: rgb(0, 161, 255);
+    position: absolute;
+    top: 420px;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
-    border-radius: 5px;
-    width: 70%;
-    height: 40px;
-}
-
-.pass-title {
-    color: rgb(0, 0, 0);
-    font-size: 15px;
-    position: absolute;
-    font-weight: 600;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 100px;
-    margin: auto;
-}
-
-.sign-in-in {
-    position: absolute;
-    font-weight: 600;
-    top: 300px;
-    left: 150px;
-    right: 0;
-    bottom: 60px;
-    margin: auto;
-    border-radius: 5px;
-    width: 100px;
-    height: 40px;
+    border-radius: 10px;
+    width: 94%;
+    height: 40%;
 }
