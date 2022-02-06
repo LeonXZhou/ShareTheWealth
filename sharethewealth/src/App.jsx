@@ -30,7 +30,6 @@ function App() {
           <Route path="/portal" element={<Portal />} />
           <Route path="/create-activity" element={<CreateActivity />} />
           <Route path="/event/:event_id" element={<Event/>}/>
-
         </Routes>
         <BottomNav></BottomNav>
       </BrowserRouter>
