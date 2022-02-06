@@ -7,15 +7,15 @@ function SignIn() {
             <div className="contentContainer">
                 <div className="email">
                     <span className="email-title">EMAIL ADDRESS</span>
-                    <input className="form-control" type="text" placeholder="Default input"></input>
+                    <input className="form-control" type="text" placeholder="Enter Email Address"></input>
                 </div>
 
                 <div className="pass">
                     <span className="pass-title">PASSWORD</span>
-                    <input className="form-control" type="text" placeholder="Default input"></input>
+                    <input className="form-control" type="text" placeholder="Enter Password"></input>
                 </div>
 
-                <button type="button" className="btn btn-primary sign-in-in" onClick={() => { navigate(`/create-event`) }}>SIGN IN</button>
+                <button type="button" className="btn btn-primary sign-in-in" onClick={() => { navigate(`/portal`) }}>SIGN IN</button>
             </div>
         </>
     );
